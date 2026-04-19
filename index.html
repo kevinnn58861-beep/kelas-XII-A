@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Kelas XII A | The Legends</title>
+    <title>Web Resmi Kelas XII A</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
         body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
         .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .gallery-item img { transition: transform 0.5s ease; }
-        .gallery-item:hover img { transform: scale(1.1); }
+        .active-page { background-color: #2563eb !important; } /* Warna biru untuk tombol aktif */
     </style>
 </head>
 <body class="bg-[#0f172a] text-white">
@@ -26,7 +25,7 @@
     </nav>
 
     <section id="home" class="py-24 text-center px-4">
-        <h2 class="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent uppercase">
+        <h2 class="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
             XII A - THE LEGENDS
         </h2>
         <p class="text-slate-400 max-w-2xl mx-auto text-lg mb-10">
@@ -46,28 +45,13 @@
             <div class="h-1 w-20 bg-blue-500 mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="gallery-item relative overflow-hidden rounded-2xl aspect-square glass group cursor-pointer">
-                <img src="https://via.placeholder.com/500" alt="Moment" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition p-4 flex items-end">
-                    <span class="text-xs">Class Event</span>
-                </div>
+        <div id="gallery-wrapper" class="grid grid-cols-2 md:grid-cols-4 gap-4">
             </div>
-            <div class="gallery-item relative overflow-hidden rounded-2xl aspect-square glass group cursor-pointer">
-                <img src="https://via.placeholder.com/500" alt="Moment" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
-            </div>
-            <div class="gallery-item relative overflow-hidden rounded-2xl aspect-square glass group cursor-pointer">
-                <img src="https://via.placeholder.com/500" alt="Moment" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
-            </div>
-            <div class="gallery-item relative overflow-hidden rounded-2xl aspect-square glass group cursor-pointer">
-                <img src="https://via.placeholder.com/500" alt="Moment" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
-            </div>
-        </div>
 
         <div class="flex justify-center mt-12 gap-2">
-            <button class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-sm font-bold">1</button>
-            <button class="w-10 h-10 rounded-full glass hover:bg-white/10 flex items-center justify-center text-sm transition">2</button>
-            <button class="w-10 h-10 rounded-full glass hover:bg-white/10 flex items-center justify-center text-sm transition"><i class="fas fa-chevron-right"></i></button>
+            <button onclick="renderGallery(1)" id="btn-1" class="page-nav w-10 h-10 rounded-full glass flex items-center justify-center text-sm font-bold transition">1</button>
+            <button onclick="renderGallery(2)" id="btn-2" class="page-nav w-10 h-10 rounded-full glass flex items-center justify-center text-sm font-bold transition">2</button>
+            <button class="w-10 h-10 rounded-full glass flex items-center justify-center text-sm transition"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
@@ -81,71 +65,108 @@
 
             <div class="flex justify-center mb-20">
                 <div class="text-center group">
-                    <div class="w-40 h-40 mx-auto mb-4 rounded-full border-4 border-emerald-500 p-1 relative overflow-hidden glass transition group-hover:scale-105">
+                    <div class="w-40 h-40 mx-auto mb-4 rounded-full border-4 border-emerald-500 p-1 relative overflow-hidden glass">
                         <img src="https://via.placeholder.com/150" alt="Wali Kelas" class="w-full h-full object-cover rounded-full">
                     </div>
                     <h3 class="text-2xl font-bold">Nama Wali Kelas, S.Pd.</h3>
-                    <p class="text-emerald-400 font-medium tracking-widest">WALI KELAS</p>
+                    <p class="text-emerald-400 font-medium tracking-widest uppercase">Wali Kelas</p>
                 </div>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24">
                 <div class="text-center">
-                    <div class="w-28 h-28 mx-auto mb-3 rounded-2xl glass overflow-hidden border border-blue-500/30">
+                    <div class="w-24 h-24 mx-auto mb-3 rounded-2xl glass overflow-hidden border border-blue-500/30">
                         <img src="https://via.placeholder.com/150" class="w-full h-full object-cover">
                     </div>
                     <h4 class="font-bold">Ketua Kelas</h4>
-                    <p class="text-slate-400 text-xs">Nama Lengkap</p>
+                    <p class="text-slate-400 text-xs">Nama Siswa</p>
                 </div>
                 <div class="text-center">
-                    <div class="w-28 h-28 mx-auto mb-3 rounded-2xl glass overflow-hidden border border-blue-500/30">
+                    <div class="w-24 h-24 mx-auto mb-3 rounded-2xl glass overflow-hidden border border-blue-500/30">
                         <img src="https://via.placeholder.com/150" class="w-full h-full object-cover">
                     </div>
                     <h4 class="font-bold">Wakil Ketua</h4>
-                    <p class="text-slate-400 text-xs">Nama Lengkap</p>
+                    <p class="text-slate-400 text-xs">Nama Siswa</p>
                 </div>
                 <div class="text-center">
-                    <div class="w-28 h-28 mx-auto mb-3 rounded-2xl glass overflow-hidden border border-blue-500/30">
+                    <div class="w-24 h-24 mx-auto mb-3 rounded-2xl glass overflow-hidden border border-blue-500/30">
                         <img src="https://via.placeholder.com/150" class="w-full h-full object-cover">
                     </div>
                     <h4 class="font-bold">Sekretaris</h4>
-                    <p class="text-slate-400 text-xs">Nama Lengkap</p>
+                    <p class="text-slate-400 text-xs">Nama Siswa</p>
                 </div>
                 <div class="text-center">
-                    <div class="w-28 h-28 mx-auto mb-3 rounded-2xl glass overflow-hidden border border-blue-500/30">
+                    <div class="w-24 h-24 mx-auto mb-3 rounded-2xl glass overflow-hidden border border-blue-500/30">
                         <img src="https://via.placeholder.com/150" class="w-full h-full object-cover">
                     </div>
                     <h4 class="font-bold">Bendahara</h4>
-                    <p class="text-slate-400 text-xs">Nama Lengkap</p>
+                    <p class="text-slate-400 text-xs">Nama Siswa</p>
                 </div>
             </div>
 
             <div class="text-center mb-10">
                 <h3 class="text-xl font-semibold text-slate-500 italic uppercase tracking-widest">Daftar Siswa</h3>
             </div>
-            
             <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6">
                 <div class="group text-center">
-                    <div class="aspect-[3/4] rounded-xl glass overflow-hidden mb-2 border border-white/5 group-hover:border-blue-500/50 transition">
-                        <img src="https://via.placeholder.com/150" alt="Siswa 1" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-500">
+                    <div class="aspect-[3/4] rounded-xl glass overflow-hidden mb-2 border border-white/5 transition group-hover:border-blue-500/50">
+                        <img src="https://via.placeholder.com/150" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-500">
                     </div>
                     <p class="text-[10px] text-slate-500 uppercase tracking-tighter">Absen 01</p>
-                    <p class="text-[12px] font-medium truncate">Nama Siswa</p>
-                </div>
-                <div class="group text-center">
-                    <div class="aspect-[3/4] rounded-xl glass overflow-hidden mb-2 border border-white/5 group-hover:border-blue-500/50 transition">
-                        <img src="https://via.placeholder.com/150" alt="Siswa 2" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition">
-                    </div>
-                    <p class="text-[10px] text-slate-500 uppercase tracking-tighter">Absen 02</p>
                     <p class="text-[12px] font-medium truncate">Nama Siswa</p>
                 </div>
                 </div>
         </div>
     </section>
 
-    <footer class="border-t border-white/10 py-12 text-center text-slate-500 bg-[#0f172a]">
-        <p>© 2026 XII A Community. Built with 💙 for the future.</p>
+    <footer class="border-t border-white/10 py-12 text-center text-slate-500">
+        <p>© 2026 XII A Community. Built with 💙</p>
     </footer>
+
+    <script>
+        // Data Foto Galeri
+        const myPhotos = [
+            // Halaman 1
+            { id: 1, page: 1, src: 'https://via.placeholder.com/500', title: 'Kegiatan 1' },
+            { id: 2, page: 1, src: 'https://via.placeholder.com/500', title: 'Kegiatan 2' },
+            { id: 3, page: 1, src: 'https://via.placeholder.com/500', title: 'Kegiatan 3' },
+            { id: 4, page: 1, src: 'https://via.placeholder.com/500', title: 'Kegiatan 4' },
+            // Halaman 2
+            { id: 5, page: 2, src: 'https://via.placeholder.com/500', title: 'Kegiatan 5' },
+            { id: 6, page: 2, src: 'https://via.placeholder.com/500', title: 'Kegiatan 6' },
+            { id: 7, page: 2, src: 'https://via.placeholder.com/500', title: 'Kegiatan 7' },
+            { id: 8, page: 2, src: 'https://via.placeholder.com/500', title: 'Kegiatan 8' }
+        ];
+
+        function renderGallery(page) {
+            const wrapper = document.getElementById('gallery-wrapper');
+            const btns = document.querySelectorAll('.page-nav');
+            
+            // Kosongkan Gallery
+            wrapper.innerHTML = '';
+
+            // Ambil foto sesuai halaman
+            const items = myPhotos.filter(p => p.page === page);
+
+            items.forEach(photo => {
+                wrapper.innerHTML += `
+                    <div class="relative overflow-hidden rounded-2xl aspect-square glass group cursor-pointer">
+                        <img src="${photo.src}" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition p-4 flex items-end">
+                            <span class="text-xs">${photo.title}</span>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Update warna tombol navigasi
+            btns.forEach(btn => btn.classList.remove('active-page'));
+            document.getElementById('btn-' + page).classList.add('active-page');
+        }
+
+        // Jalankan halaman 1 saat pertama kali loading
+        renderGallery(1);
+    </script>
 
 </body>
 </html>
